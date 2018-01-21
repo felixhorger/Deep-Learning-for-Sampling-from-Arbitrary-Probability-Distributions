@@ -362,10 +362,10 @@ def run_model(load, N_layers, N_units, opt, epochs, N_testvectors, x_train, x_te
 	else:
 		# Define Model layers, units and activation
 		model = Sequential()
-		layers = [Reshape((2*elements_per_vector,),input_shape=(elements_per_vector, 2))]
-		N = 1
-		for i in range(1, N_layers):
-			layers.append(Dense(2*elements_per_vector, activation="elu"))
+		layers = [	Reshape((2*elements_per_vector,),input_shape=(elements_per_vector, 2)),
+					Dense(2*elements_per_vector, activation="elu")]
+		for i in range(1, N_layers-1):
+			layers.append(Dense(N_units, activation="elu"))
 		layers.append(Dense(2*elements_per_vector, activation=None))
 		layers.append(Reshape((elements_per_vector, 2)))
 		for layer in layers:
