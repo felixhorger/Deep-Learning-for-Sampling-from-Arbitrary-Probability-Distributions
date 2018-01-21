@@ -1,0 +1,5 @@
+
+This project is about sampling from arbitrary probability densities using a fully connected
+neural network.
+
+The corresponding paper can be found at: https://arxiv.org/abs/1801.04211
